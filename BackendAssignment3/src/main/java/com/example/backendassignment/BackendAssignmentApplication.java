@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@SpringBootApplication//(exclude = {SecurityAutoConfiguration.class })
-
+@SpringBootApplication
 
 public class BackendAssignmentApplication {
 
