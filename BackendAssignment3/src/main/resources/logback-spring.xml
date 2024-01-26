@@ -1,0 +1,40 @@
+<configuration>
+
+
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{id} %X{name} %X{projectName} %t %p %L ---  %logger{0} : %m%n</Pattern>
+        </layout>
+    </appender>
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+    <appender name="FILE-AUDIT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>log/LibraryManagement.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss}|[%X{version} - - %X{id} - %X{name} - %X{interactionId} - %X{flowType} - %X{subflowtype} - %X{msisdn} - %X{projectName} - %X{hostName} - %M] | %.-1p | %c| %t| %m%n</Pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>log/LibraryManagement.%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1024MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+
+    <!-- LEVEL CAN NOT BE DEBUG -->
+    <logger name="org.apache" level="OFF"></logger>
+    <logger name="org.springframework" level="INFO"></logger>
+    <logger name="org.hibernate" level="OFF"></logger>
+
+    <root level="INFO">
+        <appender-ref ref="FILE-AUDIT" />
+    </root>
+</configuration>
