@@ -7,9 +7,8 @@ To Run this application please clone this repository on your local Machine and r
 Basic authentication is used to protect api end, please refer to api documentation for auth header
 
 
-ba
 
 for api documentation please visit
 https://documenter.getpostman.com/view/32585922/2s9YypG4DE
 
-Above documentation in pdf format 
+Above documentation in pdf format can be found in api_documentation.pdf 
